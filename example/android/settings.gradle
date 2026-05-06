@@ -1,6 +1,19 @@
-pluginManagement { includeBuild("../node_modules/@react-native/gradle-plugin") }
-plugins { id("com.facebook.react.settings") }
+pluginManagement {
+    includeBuild("../node_modules/@react-native/gradle-plugin")
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+
+plugins {
+    id("com.facebook.react.settings")
+    // Override foojay resolver with Gradle 9 compatible version
+    id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
+}
+
 extensions.configure(com.facebook.react.ReactSettingsExtension){ ex -> ex.autolinkLibrariesFromCommand() }
-rootProject.name = 'trackplayer.example'
+rootProject.name = 'TrackPlayerExample'
 include ':app'
 includeBuild('../node_modules/@react-native/gradle-plugin')

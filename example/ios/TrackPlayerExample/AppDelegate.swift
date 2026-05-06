@@ -1,11 +1,11 @@
 import UIKit
+import CarPlay
 import React
 import React_RCTAppDelegate
 import ReactAppDependencyProvider
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-  var window: UIWindow?
 
   var reactNativeDelegate: ReactNativeDelegate?
   var reactNativeFactory: RCTReactNativeFactory?
@@ -21,17 +21,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     reactNativeDelegate = delegate
     reactNativeFactory = factory
 
-    window = UIWindow(frame: UIScreen.main.bounds)
-
-    factory.startReactNative(
-      withModuleName: "TrackPlayerExample",
-      in: window,
-      launchOptions: launchOptions
-    )
-
     return true
   }
 }
+
+// MARK: - Phone Scene Delegate
+
+class PhoneSceneDelegate: UIResponder, UIWindowSceneDelegate {
+  var window: UIWindow?
+
+  func scene(
+    _ scene: UIScene,
+    willConnectTo session: UISceneSession,
+    options connectionOptions: UIScene.ConnectionOptions
+  ) {
+    guard let windowScene = scene as? UIWindowScene else { return }
+    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate,
+          let factory = appDelegate.reactNativeFactory else { return }
+
+    let window = UIWindow(windowScene: windowScene)
+    factory.startReactNative(
+      withModuleName: "TrackPlayerExample",
+      in: window,
+      launchOptions: nil
+    )
+    self.window = window
+    window.makeKeyAndVisible()
+  }
+}
+
+// MARK: - React Native Delegate
 
 class ReactNativeDelegate: RCTDefaultReactNativeFactoryDelegate {
   override func sourceURL(for bridge: RCTBridge) -> URL? {

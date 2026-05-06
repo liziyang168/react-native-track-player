@@ -12,19 +12,17 @@ A clear and concise description of what the bug is.
 **Steps To Reproduce**
 How can someone else reproduce this bug?
 
-**Code To Reproduce**
-Please provide a simple code example that allows others to replicate the bug.
+**Reproduction**
+The fastest way to get this fixed is a minimal repro. Please **fork the [example app](https://github.com/doublesymmetry/react-native-track-player/tree/main/example)** and modify it to demonstrate the bug, then link your fork here. Bugs that come with a working repro get prioritized.
 
-**Replicable on Example App?**
-Can you replicate this bug in the [React Native Track Player Example App](https://github.com/doublesymmetry/react-native-track-player/tree/main/example)?
+If you can't share a fork, paste the smallest possible code snippet that triggers the issue.
 
 **Environment Info:**
-Paste the results of `npx react-native info`
-Paste the exact `react-native-track-player` version you are using
-Real device? Or simulator?
-What OS are you running?
+- Output of `npx react-native info`
+- `@rntp/player` version
+- Real device or simulator
+- iOS / Android version
 
 **How I can Help**
 What can you do to help resolve this?
-Have you investigated the underlying JS or Swift/Android code causing this bug?
-Can you create a Pull Request with a fix?
+Have you investigated the underlying issue?

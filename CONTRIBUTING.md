@@ -1,65 +1,44 @@
-## Commit Message Format
+# Contributing
 
-This project utilizes [the Angular Conventional Changelog commit message format](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-angular#commit-message-format).
-We use this format to automatically generate our Changelog file.
+Contributions are welcome. We want this community to be friendly and respectful.
 
-A commit message consists of a **header**, **body** and **footer**.  The header
-has a **type**, **scope** and **subject**:
+## Scope of This Repository
 
-```
-<type>(<scope>): <subject>
-<BLANK LINE>
-<body>
-<BLANK LINE>
-<footer>
-```
+The `react-native-track-player` library source is not currently published in this repository. This repo contains:
 
-The **header** is mandatory and the **scope** of the header is optional.
+- The V5 example app (`example/`) — open to contributions and reproduction forks.
+- Issue templates for bug reports against the library.
 
-### Revert
+Bug reports for the library itself are welcome via the [bug report template](.github/ISSUE_TEMPLATE/bug_report.md). The fastest path to a fix is forking the example app to demonstrate the bug.
 
-If the commit reverts a previous commit, it should begin with `revert: `,
-followed by the header of the reverted commit. In the body it should say:
-`This reverts commit <hash>.`, where the hash is the SHA of the commit being
-reverted.
+For licensing and access to V5, see [rntp.dev/pricing](https://rntp.dev/pricing).
 
-### Type
+## Licensing and Legal
 
-If the prefix is `feat`, `fix` or `perf`, it will appear in the changelog.
-However if there is any [BREAKING CHANGE](#footer), the commit will always
-appear in the changelog.
+`react-native-track-player` is a commercial product. By contributing code to this repository, your contribution is licensed under the same terms as the rest of the project (see [`license.txt`](./license.txt)).
 
-Other prefixes are up to your discretion. Suggested prefixes are `build`, `ci`,
-`docs` ,`style`, `refactor`, and `test` for non-changelog related tasks.
+Any third-party code included in a contribution must be licensed under one of the following:
 
-Details regarding these types can be found in the official [Angular Contributing
-Guidelines](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#type).
+- [MIT / X11 License](https://opensource.org/licenses/MIT)
+- [Apache License 2.0](https://opensource.org/licenses/apache2.0)
+- [BSD License](https://opensource.org/licenses/BSD-3-Clause)
+- [Mozilla Public License 2.0](https://opensource.org/licenses/MPL-2.0)
 
-### Scope
+If your submission includes code from a third-party source, include a comment referencing the license and author above that code block.
 
-The scope could be anything specifying place of the commit change. For example
-`android`, `ios`, `ts`, `events`, etc...
+## Review and Acceptance Policy
 
-### Subject
+All submissions are evaluated at the maintainers' discretion. We reserve the right to decline pull requests, including those that:
 
-The subject contains succinct description of the change:
+- do not follow the guidelines in this document,
+- do not meet the quality standards of the existing codebase,
+- introduce changes that are out of scope or not aligned with the product direction, or
+- would require more maintainer effort to review and iterate on than the contribution warrants.
 
-* use the imperative, present tense: "change" not "changed" nor "changes"
-* don't capitalize first letter
-* no dot (.) at the end
+**We strongly encourage opening an issue for discussion before investing significant time in a pull request**, especially for non-trivial changes.
 
-### Body
+## Sending a Pull Request
 
-Just as in the **subject**, use the imperative, present tense: "change" not
-"changed" nor "changes". The body should include the motivation for the change
-and contrast this with previous behavior.
-
-### Footer
-
-The footer should contain any information about **Breaking Changes** and is also
-the place to reference GitHub issues that this commit **Closes**.
-
-**Breaking Changes** should start with the word `BREAKING CHANGE:` with a space
-or two newlines. The rest of the commit message is then used for this.
-
-A detailed explanation can be found in this [document](#commit-message-format).
+- Open an issue first for any non-trivial change.
+- Prefer small pull requests focused on one change.
+- Follow the bug report template when filing an issue.

@@ -1,139 +1,97 @@
-# RNTP Example App
+This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
-This app is useful to simply try out the RNTP features or as a basis for
-implementing new features and/or bugfixes.
+# Getting Started
 
-## Running The Example App
+> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
 
-```sh
-git clone git@github.com:DoubleSymmetry/react-native-track-player.git
-cd react-native-track-player
-yarn
-yarn build
-cd example
-yarn
-cd ios && pod install && cd ..
-```
+## Step 1: Start Metro
 
-## Library Development
+First, you will need to run **Metro**, the JavaScript build tool for React Native.
 
-If you want to use the example project to work on features or bug fixes in
-the core library then there are a few things to keep in mind.
-
-#### TS/JS
-
-If you want to work on the typescript files located in `src` (in the root
-project) you should run
-
-```
-yarn dev
-```
-
-The above command will automatically watch for changes int the `src` folder
-and recompile them while you work. Then they'll get automatically reloaded
-in a running instance of the `example` app so you can see your changes.
-
-## iOS Native
-
-It's recommended that you make your changes directly in XCode. Which you can
-open quickly by running one of the following commands:
-
-From inside the `example` directory:
+To start the Metro dev server, run the following command from the root of your React Native project:
 
 ```sh
-yarn ios:ide
+# Using npm
+npm start
+
+# OR using Yarn
+yarn start
 ```
 
-From the root directory:
+## Step 2: Build and run your app
+
+With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+
+### Android
 
 ```sh
-yarn example ios:ide
-```
+# Using npm
+npm run android
 
-Once opened you can simply navigate to the native dependencies, open their
-source files, modify them, or add breakpoints. See the screenshots below for
-specifically how to navigate to react-native-track-player and SwiftAudioEx
-dependencies (see screenshots below).
-
-![Xcode RNTP](https://rntp.dev/img/debugging/debug-ios-rntp.png)
-![Xcode SwiftAudioEx](https://rntp.dev/img/debugging/debug-ios-swift-audio-ex.png)
-
-## Android Native
-
-You can modify any android native code for RNTP by simply opening the example
-android project in Android Studio and modifying the source:
-
-**macOS Ex**
-
-From inside the `example` directory:
-
-```sh
-yarn android:ide
-```
-
-From the root directory:
-
-```sh
-yarn example android:ide
-```
-
-## KotlinAudio
-
-If you need to resolve a bug that exists in `KotlinAudio` you'll need to build
-and install a local version of `KotlinAudio` in order to do so. Here's how:
-
-#### 1. Clone the `KotlinAudio` project:
-
-```sh
-git clone git@github.com:doublesymmetry/KotlinAudio.git
-```
-
-#### 2. Build and export to maven local which is the local dependency repository:
-
-```sh
-cd KotlinAudio
-./gradlew -x test  build publishToMavenLocal
-```
-
-Make a note of the `versionNumber` configured in the `kotlin-audio/build.gradle`
-file as you'll need this in the next step.
-
-**NOTES:**
-- The result of this is a local version of the build published here:
-
-  ```
-  Windows: C:\Users\<user_name>\.m2
-  Linux: /home/<user_name>/.m2
-  macOS: /Users/<user_name>/.m2
-  ```
-- The `-x test` skips tests for faster build. Make sure you run the test
-  before submitting a PR to the `KotlinAudio` project.
-
-#### 3. Point your RNTP dependency at the local build:
-
-Please note that `<version_number>` below will need to be replaced with the
-`versionNumber` you got from `KotlinAudio/kotlin-audio/build.gradle`.
-
-```groovy
-// react-native-track-player/android/build.gradle
-...
-
-dependencies {
-    // implementation 'com.github.DoubleSymmetry:KotlinAudio:v0.1.33' // this is remote
-    implementation 'com.github.doublesymmetry:kotlin-audio:<version_number>' // this is local
-
-    ...
-}
-```
-
-**NOTE:** there are small differences in the package naming.
-
-
-#### 4. Install the new version of RNTP in the example app and build android:
-
-```sh
-cd ./example
+# OR using Yarn
 yarn android
 ```
 
-:confetti_ball: You've done it. :confetti_ball:
+### iOS
+
+For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+
+The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+
+```sh
+bundle install
+```
+
+Then, and every time you update your native dependencies, run:
+
+```sh
+bundle exec pod install
+```
+
+For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+
+```sh
+# Using npm
+npm run ios
+
+# OR using Yarn
+yarn ios
+```
+
+If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+
+This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+
+## Step 3: Modify your app
+
+Now that you have successfully run the app, let's make changes!
+
+Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+
+When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+
+- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
+- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+
+## Congratulations! :tada:
+
+You've successfully run and modified your React Native App. :partying_face:
+
+### Now what?
+
+- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
+- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+
+# Troubleshooting
+
+If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+
+# Learn More
+
+To learn more about React Native, take a look at the following resources:
+
+- [React Native Website](https://reactnative.dev) - learn more about React Native.
+- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
+- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
+- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
+- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
